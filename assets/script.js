@@ -16,3 +16,7 @@ const slides = [
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
+
+function previousSlide() {
+	document.querySelector('.banner-img').scrollLeft += '20';
+}

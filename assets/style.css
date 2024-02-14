@@ -112,6 +112,7 @@ header {
 	width: 100%;
 	min-height: 470px;
 	position: relative;
+	overflow: hidden;
 }
 .banner-img {
 	position: absolute;
@@ -129,6 +130,8 @@ header {
 }
 #banner .arrow_left {
 	left: 10px;
+	position: absolute;
+
 }
 #banner .arrow_right {
 	right: 10px;
