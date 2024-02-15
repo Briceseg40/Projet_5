@@ -1,4 +1,4 @@
-const slides = ["slide1.jpg", "slide2.jpg", "slide3.jpg", "slide4.png"]
+const slides = ["slide1.jpg", "slide2.jpg", "slide4.png","slide3.jpg"]
 let numero = 2;
 function ChangeSlide(sense) {
 	numero = numero + sense;
@@ -14,12 +14,18 @@ function ChangeSlide(sense) {
 
 	
 }
-const dots = ["slide1.jpg", "slide2.jpg", "slide3.jpg", "slide4.png"]
+const dots = ["slide1.jpg", "slide2.jpg", "slide4.png","slide3.jpg"]
 
 
 function Changedots(numero2) {
 	document.getElementById("banner1").src = "./assets/images/slideshow/" + dots[numero2];
+	
 }
+function Changeclass(numero2) {
+	document.getElementById(numero2).style.backgroundColor = '#fff';
+	
+}
+
 
 
 function ouvrirPage () {
