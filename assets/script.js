@@ -41,7 +41,7 @@ function ChangeSlide(sense) {
 
 const dots = document.querySelectorAll('.dot'); 
 
-function Changedots(numero) {
+function Changedot(numero) {
     
     for (let i = 0; i < dots.length; i++) {
         dots[i].classList.remove('dot_selected');
