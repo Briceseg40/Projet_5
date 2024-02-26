@@ -18,39 +18,55 @@ const slides = [
 ]
 
 let numero = 0;
-function ChangeSlide(sense) {
-	numero = numero + sense;
-	if (numero > 3)
-	{
-		numero = 0;
-	}
-	if (numero < 0)
-	{
-		numero = 3;
-	}
-	for (let i = 0; i < dots.length; i++) {
-        dots[i].classList.remove('dot_selected');
-    }
-    dots[numero].classList.add('dot_selected');
-	
-	document.getElementById("banner1").src = "./assets/images/slideshow/" + slides[numero].image;
-	document.getElementById("tagLine").innerHTML = slides[numero].tagLine;
 
-	
-}
+
+createDots();
+document.querySelector('.arrow_left').addEventListener('click', prevSlide);
+document.querySelector('.arrow_right').addEventListener('click', nextSlide);
 
 const dots = document.querySelectorAll('.dot'); 
 
-function Changedot(numero) {
-    
-    for (let i = 0; i < dots.length; i++) {
-        dots[i].classList.remove('dot_selected');
-    }
-    dots[numero].classList.add('dot_selected');
-	
-	document.getElementById("banner1").src = "./assets/images/slideshow/" + slides[numero].image;
-	document.getElementById("tagLine").innerHTML = slides[numero].tagLine;
 
+function createDots() {
+	for (let i = 0; i < slides.length; i++) {
+		const dot = document.createElement("div");
+		dot.classList.add("dot");
+		if (numero == i){
+			dot.classList.add("dot_selected");
+		}
+		dot.dataset.index = i;
+		dot.addEventListener("click",changeDot);
+		document.querySelector(".dots").append(dot);
+    }
+}
+
+function changeDot(e) {
+	  for (let i = 0; i < dots.length; i++) {
+		  dots[i].classList.remove("dot_selected");
+		}
+    e.target.classList.add("dot_selected");
+	
+	document.getElementById("banner1").src = "./assets/images/slideshow/" + slides[e.target.dataset.index].image;
+	document.getElementById("tagLine").innerHTML = slides[e.target.dataset.index].tagLine;	
 }
 
 
+function prevSlide() {
+    numero = (numero - 1 + slides.length) % slides.length;
+    updateSlide();
+}
+
+function nextSlide() {
+    numero = (numero + 1) % slides.length;
+    updateSlide();
+}
+
+function updateSlide() {
+	for (let i = 0; i < dots.length; i++) {
+		dots[i].classList.remove("dot_selected");
+	  }
+	dots[numero].classList.add("dot_selected");
+    document.getElementById("banner1").src = "./assets/images/slideshow/" + slides[numero].image;
+    document.getElementById("tagLine").innerHTML = slides[numero].tagLine;
+
+}
