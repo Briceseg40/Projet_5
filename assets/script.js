@@ -40,17 +40,12 @@ function createDots() {
     }
 }
 
+
 function changeDot(e) {
-	  for (let i = 0; i < dots.length; i++) {
-		  dots[i].classList.remove("dot_selected");
-		}
-    e.target.classList.add("dot_selected");
-	
-	document.getElementById("banner1").src = "./assets/images/slideshow/" + slides[e.target.dataset.index].image;
-	document.getElementById("tagLine").innerHTML = slides[e.target.dataset.index].tagLine;	
+	numero = e.target.dataset.index;
+	console.log(numero)
+	updateSlide();
 }
-
-
 function prevSlide() {
     numero = (numero - 1 + slides.length) % slides.length;
     updateSlide();
@@ -58,6 +53,8 @@ function prevSlide() {
 
 function nextSlide() {
     numero = (numero + 1) % slides.length;
+
+
     updateSlide();
 }
 
@@ -68,5 +65,7 @@ function updateSlide() {
 	dots[numero].classList.add("dot_selected");
     document.getElementById("banner1").src = "./assets/images/slideshow/" + slides[numero].image;
     document.getElementById("tagLine").innerHTML = slides[numero].tagLine;
+	console.log(numero)
+
 
 }
