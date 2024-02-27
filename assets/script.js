@@ -42,8 +42,7 @@ function createDots() {
 
 
 function changeDot(e) {
-	numero = e.target.dataset.index;
-	console.log(numero)
+	numero = parseInt(e.target.dataset.index);
 	updateSlide();
 }
 function prevSlide() {
@@ -53,8 +52,6 @@ function prevSlide() {
 
 function nextSlide() {
     numero = (numero + 1) % slides.length;
-
-
     updateSlide();
 }
 
@@ -65,7 +62,4 @@ function updateSlide() {
 	dots[numero].classList.add("dot_selected");
     document.getElementById("banner1").src = "./assets/images/slideshow/" + slides[numero].image;
     document.getElementById("tagLine").innerHTML = slides[numero].tagLine;
-	console.log(numero)
-
-
 }
